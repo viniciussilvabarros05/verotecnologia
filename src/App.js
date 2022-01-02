@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { Dashboard } from "./components/dashboard";
+import styles from "./styles/dashboard.module.scss"
+import { AiOutlineSearch } from 'react-icons/ai'
+import { useState } from "react";
 function App() {
+
+  const [callFilter, setCallFilter] = useState('')
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div className={styles.App}>
+
+      <header>
+        <div>
+          <p><span>#</span>tecCall</p>
+          <div>
+            <input type='text' placeholder = "Pesquisar estado" onChange={(event)=>setCallFilter(event.target.value)}></input>
+            <button><AiOutlineSearch/></button>
+          </div>
+        </div>
+
       </header>
+
+      <Dashboard callFilter ={callFilter}></Dashboard>
+
     </div>
+
   );
 }
 

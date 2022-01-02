@@ -1,0 +1,274 @@
+* {
+    font-family: "Roboto", sans-serif, Verdana;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --azul-marinho: #00011d;
+    --azul-marinho-claro: #0f1431;
+}
+.App {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    background-image: linear-gradient(200deg, #02f2eaa1, #00011d);
+}
+
+header {
+    position: fixed;
+    top: 0;
+    display: flex;
+
+    width: 100%;
+    justify-content: space-around;
+    padding: 1rem;
+    background: linear-gradient(45deg, var(--azul-marinho), var(--azul-marinho-claro));
+
+    > div {
+        width: 60%;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+
+        div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 80%;
+            input {
+                min-width: 100px;
+                width: 70%;
+                margin-right: 0.4rem;
+                border: none;
+                padding: 0.5rem;
+                border-radius: 0.8rem;
+                background-color: rgb(215, 241, 255);
+                outline: none;
+                font-size: 1.2rem;
+            }
+            button {
+                border: none;
+                font-size: 1rem;
+                width: 30px;
+                height: 30px;
+                border-radius: 5rem;
+                font-weight: 700;
+                color: white;
+                background-color: green;
+                transition: filter 0.2s, box-shadow 0.2s;
+                cursor: pointer;
+                &:hover {
+                    filter: brightness(1.2);
+                    box-shadow: 1px 1px 10px 1px rgba(green, $alpha: 0.8);
+                }
+            }
+        }
+    }
+
+    p {
+        color: white;
+        font-size: 2rem;
+        font-weight: 700;
+
+        span {
+            background: linear-gradient(50deg, green, yellow);
+            background-clip: text;
+            color: rgba(0, 0, 0, 0);
+            font-size: 2.3rem;
+            margin-right: 0.5rem;
+        }
+    }
+}
+
+.dashboard::-webkit-scrollbar {
+    color: rgb(215, 241, 245);
+    width: 0.5rem;
+}
+.dashboard::-webkit-scrollbar-thumb {
+    background-color: var(--azul-marinho);
+    border-radius: 1rem;
+}
+
+.dashboard {
+    width: 60%;
+    height: 60%;
+    position: relative;
+
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    border-radius: 0.8rem;
+    background-color: rgb(215, 241, 255);
+    box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.2);
+    max-height: 1000px;
+
+    table {
+        background-color: rgb(215, 241, 245);
+        filter: saturate(1.5);
+        border-spacing: 0;
+        margin: 2rem auto;
+        box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.2);
+        width: 95%;
+
+        thead {
+            th {
+                width: 100px;
+                padding: 0.8rem;
+                text-align: justify;
+
+                &:last-child {
+                    width: 10px;
+                }
+            }
+        }
+
+        tbody {
+            tr {
+                text-align: justify;
+                font-weight: 500;
+                transition: background 0.1s;
+
+                td {
+                    border: 1px solid rgba(0, 0, 0, 0.2);
+                    border-left: 0;
+                    border-right: 0;
+                    padding: 0.8rem;
+                    font-weight: 400;
+
+                    span:hover {
+                        cursor: pointer;
+                        background-color: white;
+
+                        svg {
+                            fill: var(--azul-marinho);
+                        }
+                    }
+                }
+
+                & + tr {
+                    td {
+                        border-top: 0;
+                    }
+                }
+                &:hover {
+                    background-color: var(--azul-marinho-claro);
+                    color: white;
+                }
+            }
+            span {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 35px;
+                height: 35px;
+                border-radius: 5rem;
+                background-color: var(--azul-marinho);
+
+                svg {
+                    fill: white;
+                }
+            }
+        }
+    }
+}
+
+.navBar {
+    border-top: 5px solid #00011d;
+    margin: auto;
+    position: absolute;
+    z-index: 1;
+    top: 14vh;
+    left: 0;
+    right: 0;
+    width: 60%;
+    padding: 0.8rem;
+    border-radius: 0.8rem 0.8rem 0 0;
+    background-color: rgb(215, 241, 255);
+    border-bottom: solid 1px rgba(0, 0, 0, 0.179);
+    button {
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid var(--azul-marinho);
+        padding: 0.4rem 0.8rem;
+        background-color: var(--azul-marinho-claro);
+        color: white;
+        border-radius: 0.8rem;
+        font-weight: 700;
+        transition: background 0.2s;
+        svg {
+            fill: white;
+            margin-right: 5px;
+        }
+
+        &:hover {
+            background-color: white;
+            border: 2px solid var(--azul-marinho);
+            color: var(--azul-marinho);
+            svg {
+                fill: var(--azul-marinho);
+            }
+        }
+    }
+}
+
+.inSelecao {
+    p {
+        font-weight: 700;
+        color: rgb(240, 91, 58);
+    }
+}
+.inChamando {
+    p {
+        font-weight: 700;
+        color: rgb(223, 176, 21);
+    }
+}
+
+.inCurso {
+    p {
+        font-weight: 700;
+        color: rgb(31, 158, 15);
+    }
+}
+
+@media (max-width: 700px) {
+    .navBar {
+        width: 98%;
+    }
+    .dashboard {
+        width: 98%;
+
+        table {
+            font-size: 0.8rem;
+        }
+    }
+}
+@media (max-width: 400px) {
+    header {
+        > div {
+            margin:auto;
+            width: 100%;
+            justify-content: flex-start;
+        }
+    }
+    .dashboard {
+        table {
+            font-size: 0.6rem;
+        }
+    }
+}
+@media (max-height: 850px) {
+    .dashboard {
+        margin-top: 13rem;
+    }
+    .navBar {
+        top: 22vh;
+    }
+}
