@@ -1,4 +1,4 @@
-# Desafio para processo seletivo SHARENERGY 2021/22
+# Desafio para processo seletivo Verotecnologia 2021/22
 
 ## Dependências :
   - sass
