@@ -9,19 +9,27 @@
     --azul-marinho: #00011d;
     --azul-marinho-claro: #0f1431;
 }
+
+@keyframes Rotate {
+    100% {
+        transform: rotate(-180deg);
+    }
+}
+
 .App {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     background-image: linear-gradient(200deg, #02f2eaa1, #00011d);
 }
 
 header {
     position: fixed;
+    z-index: 2;
     top: 0;
     display: flex;
-
     width: 100%;
     justify-content: space-around;
     padding: 1rem;
@@ -30,7 +38,7 @@ header {
     > div {
         width: 60%;
         display: flex;
-        flex-wrap: wrap;
+
         align-items: center;
         justify-content: space-between;
 
@@ -40,7 +48,7 @@ header {
             align-items: center;
             width: 80%;
             input {
-                min-width: 100px;
+                min-width: 200px;
                 width: 70%;
                 margin-right: 0.4rem;
                 border: none;
@@ -97,7 +105,6 @@ header {
     width: 60%;
     height: 60%;
     position: relative;
-
     overflow-y: auto;
     display: flex;
     flex-direction: column;
@@ -105,13 +112,13 @@ header {
     border-radius: 0.8rem;
     background-color: rgb(215, 241, 255);
     box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.2);
-    max-height: 1000px;
+    max-height: 800px;
 
     table {
         background-color: rgb(215, 241, 245);
         filter: saturate(1.5);
         border-spacing: 0;
-        margin: 2rem auto;
+        margin: 4rem auto;
         box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.2);
         width: 95%;
 
@@ -129,11 +136,13 @@ header {
 
         tbody {
             tr {
+                position: relative;
                 text-align: justify;
                 font-weight: 500;
                 transition: background 0.1s;
 
                 td {
+                    position: relative;
                     border: 1px solid rgba(0, 0, 0, 0.2);
                     border-left: 0;
                     border-right: 0;
@@ -172,20 +181,55 @@ header {
                 svg {
                     fill: white;
                 }
+
+                &:hover {
+                    animation: Rotate 1 0.6s forwards;
+                }
+            }
+            .contentTooltip {
+                &:hover {
+                    .tooltip {
+                        opacity: 1;
+                        visibility: visible;
+                    }
+                }
+            }
+
+            .tooltip {
+                text-align: center;
+                color: white;
+                z-index: 1;
+                position: absolute;
+                font-size: 0.7rem;
+                visibility: hidden;
+                opacity: 0;
+                top: 95%;
+                left: 5%;
+                padding: 5px 7px;
+                transition: opacity 0.5s;
+
+                background-color: rgb(48, 46, 46);
+                &::before {
+                    content: " ";
+                    position: absolute;
+                    bottom: 100%;
+                    left: 15%;
+                    border-width: 7px;
+                    border-color: transparent transparent rgb(48, 46, 46) transparent;
+                    border-style: solid;
+                }
             }
         }
     }
 }
 
 .navBar {
+    position: fixed;
     border-top: 5px solid #00011d;
-    margin: auto;
-    position: absolute;
-    z-index: 1;
-    top: 14vh;
-    left: 0;
-    right: 0;
     width: 60%;
+    margin: auto;
+    top: 14vh;
+    z-index: 1;
     padding: 0.8rem;
     border-radius: 0.8rem 0.8rem 0 0;
     background-color: rgb(215, 241, 255);
@@ -200,6 +244,7 @@ header {
         background-color: var(--azul-marinho-claro);
         color: white;
         border-radius: 0.8rem;
+        cursor: pointer;
         font-weight: 700;
         transition: background 0.2s;
         svg {
@@ -242,33 +287,29 @@ header {
     .navBar {
         width: 98%;
     }
-    .dashboard {
-        width: 98%;
 
+    .dashboard {
+        margin-top: 12rem;
+        width: 98%;
         table {
             font-size: 0.8rem;
         }
     }
 }
-@media (max-width: 400px) {
+
+@media (max-width: 500px) {
     header {
         > div {
-            margin:auto;
-            width: 100%;
-            justify-content: flex-start;
+            flex-wrap: wrap;
+            margin: auto;
+            width: 98%;
+            justify-content: center;
         }
     }
+
     .dashboard {
         table {
             font-size: 0.6rem;
         }
-    }
-}
-@media (max-height: 850px) {
-    .dashboard {
-        margin-top: 13rem;
-    }
-    .navBar {
-        top: 22vh;
     }
 }
