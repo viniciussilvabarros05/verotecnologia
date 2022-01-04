@@ -12,7 +12,7 @@ export function Dashboard(props) {
 
     const [call, setCall] = useState([])
 
-    let callFilted = call.filter(item => item.estado.toLowerCase().includes(props.callFilter))
+    let callFilted = call.filter(item => item.estado.toLowerCase().includes(props.callFilter.toLowerCase()))
 
     function setArrayCall() {
         setInterval(() => {
