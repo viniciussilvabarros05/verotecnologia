@@ -3,7 +3,6 @@
 ## Dependências :
   - sass
   - sweetalert
-  - recharts
   - react-icons
   - nodemailer
 ## Para a instalação:
