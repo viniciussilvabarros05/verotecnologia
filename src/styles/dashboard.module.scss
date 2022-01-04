@@ -296,6 +296,13 @@ header {
         }
     }
 }
+@media (max-height: 850px) {
+   
+
+   .navBar{
+       top: 20vh;
+   }
+}
 
 @media (max-width: 500px) {
     header {
