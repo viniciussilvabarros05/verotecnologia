@@ -4,7 +4,7 @@
   - sass
   - sweetalert
   - react-icons
-  - nodemailer
+  - pdfmake
 ## Para a instalação:
   no terminal: 
   - Descer para a página desafio com "cd verotecnologia"
